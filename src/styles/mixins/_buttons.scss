@@ -1,0 +1,37 @@
+@import "transition";
+@import "box-shadow";
+
+@mixin button($background-color: white, $disabled-color: lightgrey) {
+  padding: 5px 25px;
+  border: none;
+  font-size: 1rem;
+  color: rgba(black, .8);
+  background-color: $background-color;
+  @include transition(all .2s ease-in-out);
+  outline: 0;
+
+  &.button-disabled {
+    color: gray;
+    background-color: $disabled-color;
+    box-shadow: none;
+    pointer-events: none;
+  }
+
+  &:not(.button-disabled):hover {
+    background-color: darken($background-color, 5);
+  }
+
+  &:not(.button-disabled):active {
+    background-color: darken($background-color, 10);
+  }
+}
+
+@mixin raised-button($background-color: white) {
+  @include button($background-color);
+  border-radius: 5px;
+  @include box-shadow(1px 2px 2px 1px rgba(0, 0, 0, 0.5));
+
+  &:active {
+    @include box-shadow(1px 2px 3px 0 rgba(0, 0, 0, 0.5));
+  }
+}

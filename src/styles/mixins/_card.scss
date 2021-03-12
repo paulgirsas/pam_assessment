@@ -1,0 +1,7 @@
+@import "box-shadow";
+@mixin card($color: rgba(#000000, .8), $background-color: white, $border-radius: 20px) {
+  color: $color;
+  background-color: white;
+  border-radius: 20px;
+  @include box-shadow(1px 2px 3px 1px rgba(0, 0, 0, 0.5))
+}
